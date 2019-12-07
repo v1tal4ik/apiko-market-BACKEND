@@ -1,22 +1,23 @@
 import uuidv4 from 'uuid/v4';
-import Products from './productsScema';
+import Tours from './toursScema';
 
 
-const getItems = async () => {
-  const doc = await Products.find({});
+const getAllTours = async () => {
+  const doc = await Tours.find({});
   if (doc.length) {
     return Promise.resolve(doc);
   }
-  return Promise.reject(new Error('The products not found:('));
+  return Promise.reject(new Error('The Tours not found:('));
 };
 
 
 const addNewProduct = async () => {
-  const product = new Products({
+  const product = new Tours({
     id: uuidv4(),
-    name: 'bar',
-    price: 123.456,
+    name: 'item tour',
+    price: 123,
     img: '../../img/item/sea.jpg',
+    location: 'asia',
     extraInfo: {
       description: '',
       date: '2019-12-01',
@@ -29,6 +30,6 @@ const addNewProduct = async () => {
 
 
 export default {
-  getItems,
+  getAllTours,
   addNewProduct,
 };

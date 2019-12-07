@@ -1,9 +1,9 @@
-import db from '../models/Products/productsDB';
+import db from '../models/Tours/toursDB';
 
 
-const getItemList = async (req, res) => {
+const getTours = async (req, res) => {
   try {
-    const result = await db.getItems();
+    const result = await db.getAllTours();
     res.status(200).json(result);
   } catch (e) {
     res.status(404).json(e);
@@ -12,5 +12,5 @@ const getItemList = async (req, res) => {
 
 
 export default {
-  getItemList,
+  getTours,
 };

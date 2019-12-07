@@ -4,7 +4,7 @@ import market from '../controllers/market';
 
 const router = express.Router();
 
-router.get('/itemList', market.getItemList);
+router.get('/tours', market.getTours);
 
 
 export default router;

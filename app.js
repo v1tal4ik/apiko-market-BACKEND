@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import path from 'path';
 import authRouter from './routes/auth';
-import storeRouter from './routes/store';
+import marketRouter from './routes/market';
 import secretRouter from './routes/secret';
 import './models/index';
 
@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, '../client/build')))
   .use(bodyParser.json())
   .use('/auth', authRouter)
   .use('/secret', secretRouter)
-  .use('/', storeRouter);
+  .use('/', marketRouter);
 
 
 app.use((req, res) => {
