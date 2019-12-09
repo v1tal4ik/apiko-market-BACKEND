@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 import uuidv4 from 'uuid/v4';
-import Users from './usersScema';
+import Users from './usersSchema';
 
 
 const getUserByEmail = async ({ email }) => {

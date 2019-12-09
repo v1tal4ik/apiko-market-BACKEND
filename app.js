@@ -11,7 +11,6 @@ const port = process.env.PORT || 3001;
 const app = express();
 
 app.use(express.static(path.join(__dirname, '../client/build')))
-// app.use(express.static(path.join(__dirname, './build')))
   .use(bodyParser.urlencoded({ extended: false }))
   .use(cookieParser())
   .use(bodyParser.text())
@@ -22,7 +21,6 @@ app.use(express.static(path.join(__dirname, '../client/build')))
 
 
 app.use((req, res) => {
-  // res.sendFile(path.join(__dirname + '/build/error.html'));
   res.status(404).json({
     err: '404',
     message: '404 - Not found',
