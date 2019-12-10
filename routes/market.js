@@ -1,12 +1,10 @@
 import express from 'express';
+import market from '../controllers/market';
 
 
 const router = express.Router();
 
-
-router.get('/test', (req, res, next) => {
-  console.log('work test');
-});
+router.get('/tours', market.getTours);
 
 
 export default router;
