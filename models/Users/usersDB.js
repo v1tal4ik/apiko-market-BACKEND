@@ -67,10 +67,14 @@ const addNewUser = async ({ email, fullName, password }) => {
   return Promise.reject(new Error(`Sorry, the registration ${fullName} was failed :(`));
 };
 
-const setUserChange = async ({ id, fullName, phone }) => {
-  const doc = await Users.findOneAndUpdate({ id }, { fullName, phone }, { new: true });
+const setUserChange = async ({
+  id, fullName, phone, img,
+}) => {
+  const doc = await Users.findOneAndUpdate({ id }, { fullName, phone, img }, { new: true });
   if (doc.id === id) {
-    return Promise.resolve({ fullName: doc.fullName, phone: doc.phone, msg: 'Profile information successfully updated' });
+    return Promise.resolve({
+      fullName: doc.fullName, phone: doc.phone, img: doc.img, msg: 'Profile information successfully updated',
+    });
   }
   return Promise.reject(new Error());
 };
