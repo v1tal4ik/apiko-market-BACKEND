@@ -1,4 +1,5 @@
 import express from 'express';
+import fileUpload from 'express-fileupload';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import path from 'path';
@@ -11,6 +12,7 @@ const port = process.env.PORT || 3001;
 const app = express();
 
 app.use(express.static(path.join(__dirname, '../client/build')))
+  .use(fileUpload())
   .use(bodyParser.urlencoded({ extended: false }))
   .use(cookieParser())
   .use(bodyParser.text())

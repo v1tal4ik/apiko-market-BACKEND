@@ -7,6 +7,7 @@ const router = express.Router();
 
 router.get('/tours', market.getTours);
 router.patch('/profile', profile.setUserChange);
+router.post('/profile/img', profile.saveProfileImg);
 
 
 export default router;
