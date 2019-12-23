@@ -7,7 +7,12 @@ const getUserByEmail = async ({ email }) => {
   const doc = await Users.findOne({ email });
   if (doc.email === email) {
     const {
-      id, email, fullName, img, phone, favProducts,
+      id,
+      email,
+      fullName,
+      img,
+      phone,
+      favProducts,
     } = doc;
 
     return Promise.resolve({
@@ -53,7 +58,7 @@ const addNewUser = async ({ email, fullName, password }) => {
     fullName,
     password: hash,
     salt,
-    img: '',
+    img: 'https://res.cloudinary.com/v1tal4ik-cloud/image/upload/v1576768183/mxkqyjzbmhmfjypslfny.png',
     phone: '',
     favProducts: [],
   });

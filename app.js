@@ -5,7 +5,6 @@ import cookieParser from 'cookie-parser';
 import path from 'path';
 import authRouter from './routes/auth';
 import appRouter from './routes/app';
-import secretRouter from './routes/secret';
 import './models/index';
 
 const port = process.env.PORT || 3001;
@@ -18,7 +17,6 @@ app.use(express.static(path.join(__dirname, '../client/build')))
   .use(bodyParser.text())
   .use(bodyParser.json())
   .use('/auth', authRouter)
-  .use('/secret', secretRouter)
   .use('/', appRouter);
 
 

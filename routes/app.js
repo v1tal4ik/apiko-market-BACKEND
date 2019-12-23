@@ -1,13 +1,14 @@
 import express from 'express';
 import market from '../controllers/market';
-import profile from '../controllers/profile';
+import user from '../controllers/user';
 
 
 const router = express.Router();
 
 router.get('/tours', market.getTours);
-router.patch('/profile', profile.setUserChange);
-router.post('/profile/img', profile.saveProfileImg);
+
+router.patch('/profile', user.setUserChange);
+router.post('/profile/img', user.saveUserImg);
 
 
 export default router;
