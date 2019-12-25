@@ -87,6 +87,14 @@ const saveUserImg = async (req, res) => {
   });
 };
 
+const updateFavList = async (req, res) => {
+  try {
+    const result = await db.updateFavList(req.body);
+    res.status(200).json(result);
+  } catch (e) {
+    res.status(500).json(e.message);
+  }
+};
 
 export default {
   getUserByEmail,
@@ -96,4 +104,5 @@ export default {
   addNewUser,
   setUserChange,
   saveUserImg,
+  updateFavList,
 };
