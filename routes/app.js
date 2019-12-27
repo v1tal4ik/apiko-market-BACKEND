@@ -11,6 +11,7 @@ router.post('/tours/img', market.saveTourImg);
 
 router.patch('/profile', user.setUserChange);
 router.post('/profile/img', user.saveUserImg);
+router.patch('/profile/fav-tours', user.updateFavList);
 
 
 export default router;

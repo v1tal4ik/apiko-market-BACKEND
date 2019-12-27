@@ -34,9 +34,7 @@ const userSchema = new Schema({
   refreshToken: {
     type: String,
   },
-  favProducts: [
-    Schema.Types.ObjectId,
-  ],
+  favProducts: [String],
 }, {
   versionKey: false,
 });

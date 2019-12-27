@@ -72,9 +72,8 @@ const addNewUser = async ({ email, fullName, password }) => {
   return Promise.reject(new Error(`Sorry, the registration ${fullName} was failed :(`));
 };
 
-const setUserChange = async ({
-  id, fullName, phone, img,
-}) => {
+// eslint-disable-next-line object-curly-newline
+const setUserChange = async ({ id, fullName, phone, img }) => {
   const doc = await Users.findOneAndUpdate({ id }, { fullName, phone, img }, { new: true });
   if (doc.id === id) {
     return Promise.resolve({
@@ -82,6 +81,14 @@ const setUserChange = async ({
     });
   }
   return Promise.reject(new Error());
+};
+
+const updateFavList = async ({ id, favProducts }) => {
+  const doc = await Users.findOneAndUpdate({ id }, { favProducts }, { new: true });
+  if (doc.id === id) {
+    return Promise.resolve();
+  }
+  return Promise.reject();
 };
 
 
@@ -93,4 +100,5 @@ export default {
   isEmailUnique,
   addNewUser,
   setUserChange,
+  updateFavList,
 };
