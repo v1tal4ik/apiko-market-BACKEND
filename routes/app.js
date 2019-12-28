@@ -9,6 +9,7 @@ router.get('/tours', market.getTours);
 router.post('/tours', market.addNewTour);
 router.post('/tours/img', market.saveTourImg);
 
+router.get('/profile', user.getUserById);
 router.patch('/profile', user.setUserChange);
 router.post('/profile/img', user.saveUserImg);
 router.patch('/profile/fav-tours', user.updateFavList);
