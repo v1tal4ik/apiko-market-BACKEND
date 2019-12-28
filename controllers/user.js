@@ -11,6 +11,16 @@ cloudinary.config({
   api_secret: process.env.API_SECRET,
 });
 
+const getUserById = async (req, res) => {
+  const { id } = req.query;
+  try {
+    const result = await db.getUserById({ id });
+    res.status(200).json(result);
+  } catch (e) {
+    res.status(404).json({});
+  }
+};
+
 const getUserByEmail = async (req, res) => {
   const { email } = req.query;
   try {
@@ -97,6 +107,7 @@ const updateFavList = async (req, res) => {
 };
 
 export default {
+  getUserById,
   getUserByEmail,
   isPassValid,
   singInById,

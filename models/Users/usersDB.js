@@ -2,6 +2,13 @@ import crypto from 'crypto';
 import uuidv4 from 'uuid/v4';
 import Users from './usersSchema';
 
+const getUserById = async ({ id }) => {
+  const doc = await Users.findOne({ id });
+  if (doc.id === id) {
+    return Promise.resolve({ status: true, user: doc });
+  }
+  return Promise.reject();
+};
 
 const getUserByEmail = async ({ email }) => {
   const doc = await Users.findOne({ email });
@@ -21,10 +28,6 @@ const getUserByEmail = async ({ email }) => {
   }
   return Promise.reject(new Error(`The ${email} not found:(`));
 };
-
-const getUserById = async ({ id }) => (
-  Users.findOne({ id })
-);
 
 const isPassValid = async ({ email, password }) => {
   const doc = await Users.findOne({ email });
